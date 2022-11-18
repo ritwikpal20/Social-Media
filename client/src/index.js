@@ -1,10 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './styles/global.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./styles/global.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
-import DataProvider from './redux/store';
+import DataProvider from "./redux/store";
+import axios from "axios";
+axios.defaults.baseURL = "http://localhost:8080";
+// "https://ly7sie.deta.dev/";
 
 ReactDOM.render(
   <React.StrictMode>

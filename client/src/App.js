@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import io from 'socket.io-client'
+import io from "socket.io-client";
 
 import PageRender from "./customRouter/PageRender";
 import PrivateRouter from "./customRouter/PrivateRouter";
@@ -27,11 +27,15 @@ function App() {
   useEffect(() => {
     dispatch(refreshToken());
 
-    const socket = io();
-    dispatch({type: GLOBALTYPES.SOCKET, payload: socket })
-    return () => socket.close()
+    const socket = io(
+      // "https://ly7sie.deta.dev/",
+      "http://localhost:8080",
+      // backend url
+      { withCredentials: true }
+    );
+    dispatch({ type: GLOBALTYPES.SOCKET, payload: socket });
+    return () => socket.close();
   }, [dispatch]);
-
 
   useEffect(() => {
     if (auth.token) {
@@ -45,16 +49,13 @@ function App() {
     if (!("Notification" in window)) {
       alert("This browser does not support desktop notification");
     } else if (Notification.permission === "granted") {
-
     } else if (Notification.permission !== "denied") {
       Notification.requestPermission().then(function (permission) {
         if (permission === "granted") {
         }
       });
     }
-  }, [])
-
-   
+  }, []);
 
   return (
     <Router>
@@ -64,7 +65,7 @@ function App() {
         <div className="main">
           {userType === "user" && auth.token && <Header />}
           {status && <StatusModal />}
-          {auth.token && <SocketClient /> }
+          {auth.token && <SocketClient />}
           <Route
             exact
             path="/"
