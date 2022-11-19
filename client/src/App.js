@@ -28,8 +28,8 @@ function App() {
     dispatch(refreshToken());
 
     const socket = io(
-      // "https://ly7sie.deta.dev/",
-      "http://localhost:8080",
+      "https://socialmedia-bxx1.onrender.com/",
+      // "http://localhost:8080",
       // backend url
       { withCredentials: true }
     );

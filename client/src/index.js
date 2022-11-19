@@ -6,8 +6,8 @@ import reportWebVitals from "./reportWebVitals";
 
 import DataProvider from "./redux/store";
 import axios from "axios";
-axios.defaults.baseURL = "http://localhost:8080";
-// "https://ly7sie.deta.dev/";
+axios.defaults.baseURL = "https://socialmedia-bxx1.onrender.com/";
+// "http://localhost:8080";
 
 ReactDOM.render(
   <React.StrictMode>
