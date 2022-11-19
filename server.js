@@ -35,7 +35,7 @@ const io = require("socket.io")(http, {
     origin:
       process.env.ENVIRONMENT == "dev"
         ? "http://localhost:3000"
-        : "https://socialmediadeta.netlify.app/", // frontend url
+        : "https://socialmediadeta.netlify.app", // frontend url
     methods: ["GET", "POST"],
     credentials: true,
   },
