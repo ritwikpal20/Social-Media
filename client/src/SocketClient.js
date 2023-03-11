@@ -6,18 +6,19 @@ import { GLOBALTYPES } from "./redux/actions/globalTypes";
 import { NOTIFY_TYPES } from "./redux/actions/notifyAction";
 import { MESSAGE_TYPES } from "./redux/actions/messageAction";
 
-import audioTone from './audio/pristine-609.mp3' 
+import audioTone from "./audio/pristine-609.mp3";
 
 const spawnNotification = (body, icon, url, title) => {
   let options = {
-    body, icon
-  }
+    body,
+    icon,
+  };
   let n = new Notification(title, options);
-  n.onclick =  e => {
+  n.onclick = (e) => {
     e.preventDefault();
-    window.open(url, '_blank');
-  }
-}
+    window.open(url, "_blank");
+  };
+};
 
 const SocketClient = () => {
   const { auth, socket, notify } = useSelector((state) => state);
@@ -105,7 +106,7 @@ const SocketClient = () => {
         msg.user.username + " " + msg.text,
         msg.user.avatar,
         msg.url,
-        "CAMPUS CONNECT"
+        "IG"
       );
     });
     return () => socket.off("createNotifyToClient");
@@ -122,7 +123,6 @@ const SocketClient = () => {
   useEffect(() => {
     socket.on("addMessageToClient", (msg) => {
       dispatch({ type: MESSAGE_TYPES.ADD_MESSAGE, payload: msg });
-
     });
     return () => socket.off("addMessageToClient");
   }, []);

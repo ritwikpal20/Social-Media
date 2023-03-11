@@ -12,19 +12,18 @@ import {
   getTotalSpamPosts,
 } from "../../../redux/actions/adminAction";
 
-
 const Main = () => {
-    const { auth, admin, socket } = useSelector((state) => state);
-    const dispatch = useDispatch();
+  const { auth, admin, socket } = useSelector((state) => state);
+  const dispatch = useDispatch();
 
-    useEffect(() => {
-      dispatch(getTotalUsers(auth.token));
-      dispatch(getTotalPosts(auth.token));
-      dispatch(getTotalComments(auth.token));
-      dispatch(getTotalLikes(auth.token));
-      dispatch(getTotalSpamPosts(auth.token));
-      dispatch(getTotalActiveUsers({ auth, socket }));
-    }, [dispatch, auth.token, socket, auth]);
+  useEffect(() => {
+    dispatch(getTotalUsers(auth.token));
+    dispatch(getTotalPosts(auth.token));
+    dispatch(getTotalComments(auth.token));
+    dispatch(getTotalLikes(auth.token));
+    dispatch(getTotalSpamPosts(auth.token));
+    dispatch(getTotalActiveUsers({ auth, socket }));
+  }, [dispatch, auth.token, socket, auth]);
   return (
     <div className="main_admin">
       <div className="main__container">

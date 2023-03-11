@@ -14,7 +14,7 @@ const RegisterAdmin = () => {
     email: "",
     password: "",
     cf_password: "",
-    gender: "male"
+    gender: "male",
   };
   const [userData, setUserData] = useState(initialState);
   const { fullname, username, email, password, cf_password } = userData;
@@ -41,9 +41,7 @@ const RegisterAdmin = () => {
   return (
     <div className="auth_page">
       <form onSubmit={handleSubmit} className="inner-shadow">
-        <h3 className="text-uppercase text-center mb-4 auth-heading">
-          Campus Connect
-        </h3>
+        <h3 className="text-uppercase text-center mb-4 auth-heading">IG</h3>
         <div className="mb-3">
           <label htmlFor="fullname" className="form-label">
             Full name

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logout } from "../../../redux/actions/authAction";
 import "./Sidebar.css";
@@ -8,11 +8,9 @@ import AdminManagement from "../adminManagement/AdminManagement";
 import Spam from "../spamManagement/Spam";
 import UsersManagement from "../usersManagement/UsersManagement";
 
-
 const Sidebar = () => {
   const dispatch = useDispatch();
-    const [adminMenu, setAdminMenu] = useState(1);
-
+  const [adminMenu, setAdminMenu] = useState(1);
 
   return (
     <>
@@ -24,7 +22,7 @@ const Sidebar = () => {
       <div className="sidebar_responsive" id="sidebar">
         <div className="sidebar__title">
           <div className="sidebar__img">
-            <h1>Campus Connect</h1>
+            <h1>IG</h1>
           </div>
           <i className="fa fa-times" id="sidebarIcon" aria-hidden="true"></i>
         </div>
@@ -52,21 +50,21 @@ const Sidebar = () => {
             <i className="fa fa-ban"></i>
             <a href="#">Spams Management</a>
           </div>
-          <div
+          {/* <div
             className={`sidebar__link ${adminMenu === 4 && "active_menu_link"}`}
             onClick={() => setAdminMenu(4)}
           >
             <i className="fa fa-wrench"></i>
             <a href="#">Users Management</a>
-          </div>
-          <div className="sidebar__link">
+          </div> */}
+          {/* <div className="sidebar__link">
             <i className="fa fa-archive"></i>
             <a href="#">xyz</a>
           </div>
           <div className="sidebar__link">
             <i className="fa fa-handshake-o"></i>
             <a href="#">xyz</a>
-          </div>
+          </div> */}
 
           <div className="sidebar__logout">
             <i className="fa fa-power-off"></i>

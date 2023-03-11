@@ -33,15 +33,8 @@ const userCtrl = {
 
   updateUser: async (req, res) => {
     try {
-      const {
-        avatar,
-        fullname,
-        mobile,
-        address,
-        story,
-        website,
-        gender,
-      } = req.body;
+      const { avatar, fullname, mobile, address, story, website, gender } =
+        req.body;
       if (!fullname) {
         return res.status(400).json({ msg: "Please add your full name." });
       }
@@ -68,13 +61,11 @@ const userCtrl = {
           .status(500)
           .json({ msg: "You are already following this user." });
 
-
-
       const newUser = await Users.findOneAndUpdate(
         { _id: req.params.id },
         {
           $push: {
-            followers: req.user._id
+            followers: req.user._id,
           },
         },
         { new: true }
@@ -94,15 +85,13 @@ const userCtrl = {
 
   unfollow: async (req, res) => {
     try {
-      
-
       const newUser = await Users.findOneAndUpdate(
         { _id: req.params.id },
         {
-          $pull: { followers: req.user._id }
+          $pull: { followers: req.user._id },
         },
         { new: true }
-      ).populate('followers following', '-password');
+      ).populate("followers following", "-password");
 
       await Users.findOneAndUpdate(
         { _id: req.user._id },
@@ -122,8 +111,8 @@ const userCtrl = {
 
       const num = req.query.num || 10;
       const users = await Users.aggregate([
-        { $match: { _id: { $nin: newArr } } },
         { $sample: { size: Number(num) } },
+        { $match: { _id: { $nin: newArr } } },
         {
           $lookup: {
             from: "users",
@@ -150,9 +139,6 @@ const userCtrl = {
       return res.status(500).json({ msg: err.message });
     }
   },
-
-
-
 };
 
 module.exports = userCtrl;
