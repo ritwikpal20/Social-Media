@@ -42,7 +42,9 @@ const authCtrl = {
 
       res.cookie("refreshtoken", refresh_token, {
         httpOnly: true,
-        path: "/api/refresh_token",
+        sameSite: "none",
+        domain: "onrender.com",
+        secure: true,
         maxAge: 30 * 24 * 60 * 60 * 1000, //validity of 30 days
       });
 
@@ -65,7 +67,7 @@ const authCtrl = {
 
   changePassword: async (req, res) => {
     try {
-      const {oldPassword, newPassword} = req.body;
+      const { oldPassword, newPassword } = req.body;
 
       const user = await Users.findOne({ _id: req.user._id });
 
@@ -81,11 +83,13 @@ const authCtrl = {
       }
 
       const newPasswordHash = await bcrypt.hash(newPassword, 12);
-      
-      await Users.findOneAndUpdate({_id: req.user._id}, {password: newPasswordHash });
 
-      res.json({msg: "Password updated successfully."})
+      await Users.findOneAndUpdate(
+        { _id: req.user._id },
+        { password: newPasswordHash }
+      );
 
+      res.json({ msg: "Password updated successfully." });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
@@ -123,11 +127,8 @@ const authCtrl = {
         email,
         password: passwordHash,
         gender,
-        role
+        role,
       });
-
-
-
 
       await newUser.save();
 
@@ -160,8 +161,9 @@ const authCtrl = {
 
       res.cookie("refreshtoken", refresh_token, {
         httpOnly: true,
-        path: "/api/refresh_token",
-        sameSite: 'lax',
+        sameSite: "none",
+        domain: "onrender.com",
+        secure: true,
         maxAge: 30 * 24 * 60 * 60 * 1000, //validity of 30 days
       });
 
@@ -198,7 +200,9 @@ const authCtrl = {
 
       res.cookie("refreshtoken", refresh_token, {
         httpOnly: true,
-        path: "/api/refresh_token",
+        sameSite: "none",
+        domain: "onrender.com",
+        secure: true,
         maxAge: 30 * 24 * 60 * 60 * 1000, //validity of 30 days
       });
 
