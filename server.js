@@ -4,15 +4,22 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const SocketServer = require("./socketServer");
-// const corsOptions = {
-//   Credential: "true",
-// };
+
+frontendUrl =
+  process.env.ENVIRONMENT == "dev"
+    ? "http://localhost:3000"
+    : "https://socialmediadeta.netlify.app";
 
 const app = express();
 
 app.use(express.json());
 // app.options("*", cors(corsOptions));
-app.use(cors());
+app.use(
+  cors({
+    origin: frontendUrl,
+    credentials: true,
+  })
+);
 app.use(cookieParser());
 
 app.get("/", async (req, res) => {
@@ -32,10 +39,7 @@ app.use("/api", require("./routes/messageRouter"));
 const http = require("http").createServer(app);
 const io = require("socket.io")(http, {
   cors: {
-    origin:
-      process.env.ENVIRONMENT == "dev"
-        ? "http://localhost:3000"
-        : "https://socialmediadeta.netlify.app", // frontend url
+    origin: frontendUrl, // frontend url
     methods: ["GET", "POST"],
     credentials: true,
   },
