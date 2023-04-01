@@ -43,7 +43,6 @@ const authCtrl = {
       res.cookie("refreshtoken", refresh_token, {
         httpOnly: true,
         sameSite: "none",
-        domain: "socialmedia-bxx1.onrender.com",
         secure: true,
         maxAge: 30 * 24 * 60 * 60 * 1000, //validity of 30 days
       });
@@ -162,7 +161,6 @@ const authCtrl = {
       res.cookie("refreshtoken", refresh_token, {
         httpOnly: true,
         sameSite: "none",
-        domain: "socialmedia-bxx1.onrender.com",
         secure: true,
         maxAge: 30 * 24 * 60 * 60 * 1000, //validity of 30 days
       });
@@ -201,7 +199,6 @@ const authCtrl = {
       res.cookie("refreshtoken", refresh_token, {
         httpOnly: true,
         sameSite: "none",
-        domain: "socialmedia-bxx1.onrender.com",
         secure: true,
         maxAge: 30 * 24 * 60 * 60 * 1000, //validity of 30 days
       });
