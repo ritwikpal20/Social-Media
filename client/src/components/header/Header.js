@@ -17,11 +17,11 @@ const Header = () => {
   };
 
   return (
-    <div className="header bg-light">
-      <nav className="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
+    <div className="header">
+      <nav className="navbar navbar-expand-lg navbar-light justify-content-between">
         <div className="container-fluid">
           <Link to="/" className="logo" onClick={handleRefreshHome}>
-            <h1 className="navbar-brand text-uppercase p-0 m-0">IG</h1>
+            <h1 className="navbar-brand p-0 m-0">SocialSphere</h1>
           </Link>
 
           <Search />

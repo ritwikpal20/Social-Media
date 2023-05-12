@@ -1,14 +1,14 @@
 .auth_page{
     width: 100%;
     min-height: 100vh;
-    background: #eff0f4;
+    background: #daf6ca;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .auth_page form{
-    background: #eff0f4;
+    background: white;
     max-width: 400px;
     width: 100%;
     border: 1px solid #ddd;
@@ -67,7 +67,7 @@
     width: 100%;
     background: none;
     max-width: 400px;
-    color: var(--pink);
+    color: #800020;
     border-radius: 4px;
     text-shadow: var(--outer-shadow);
     font-size: 2.2rem;

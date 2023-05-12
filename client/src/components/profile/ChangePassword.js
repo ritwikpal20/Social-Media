@@ -12,12 +12,11 @@ const ChangePassword = ({ setChangePassword }) => {
   const { auth, theme } = useSelector((state) => state);
   const dispatch = useDispatch();
 
-
-
-
-  const handleSubmit = e => {
-      e.preventDefault();
-      dispatch(changePassword( {oldPassword, newPassword, cnfNewPassword, auth} ) );
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(
+      changePassword({ oldPassword, newPassword, cnfNewPassword, auth })
+    );
   };
 
   return (
@@ -30,10 +29,8 @@ const ChangePassword = ({ setChangePassword }) => {
       </button>
 
       <form onSubmit={handleSubmit}>
-        
-        
         <div className="form_group">
-          <label htmlFor="oldPassword">old password</label>
+          <label htmlFor="oldPassword">Old Password</label>
 
           <input
             type="text"
@@ -45,9 +42,8 @@ const ChangePassword = ({ setChangePassword }) => {
           />
         </div>
 
-
         <div className="form_group">
-          <label htmlFor="newPassword">new password</label>
+          <label htmlFor="newPassword">New Password</label>
 
           <input
             type="text"
@@ -59,9 +55,8 @@ const ChangePassword = ({ setChangePassword }) => {
           />
         </div>
 
-
         <div className="form_group">
-          <label htmlFor="cnfNewPassword">confirm new password</label>
+          <label htmlFor="cnfNewPassword">Confirm New Password</label>
 
           <input
             type="text"
@@ -73,9 +68,8 @@ const ChangePassword = ({ setChangePassword }) => {
           />
         </div>
 
-        
-        <button className="btn btn-info w-100" type="submit">
-          update
+        <button className="btn btn-primary w-100" type="submit">
+          Update
         </button>
       </form>
     </div>

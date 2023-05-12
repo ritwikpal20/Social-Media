@@ -39,7 +39,7 @@ const Register = () => {
   return (
     <div className="auth_page">
       <form onSubmit={handleSubmit} className="inner-shadow">
-        <h3 className="text-uppercase text-center mb-4 auth-heading">IG</h3>
+        <h3 className="text-center mb-4 auth-heading">SocialSphere</h3>
         <div className="mb-3">
           <label htmlFor="fullname" className="form-label">
             Full name

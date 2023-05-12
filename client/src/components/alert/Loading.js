@@ -9,7 +9,7 @@ const Loading = () => {
         top: 0,
         left: 0,
         zIndex: 50,
-        opacity: 0.7
+        // opacity: 0.7
       }}
       className="position-fixed vh-100 w-100   d-flex justify-content-center align-items-center"
     >

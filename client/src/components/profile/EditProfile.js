@@ -38,9 +38,9 @@ const EditProfile = ({ setOnEdit }) => {
     setUserData({ ...userData, [name]: value });
   };
 
-  const handleSubmit = e => {
-      e.preventDefault();
-      dispatch(updateProfileUser( {userData, avatar, auth} ) );
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(updateProfileUser({ userData, avatar, auth }));
   };
 
   return (
@@ -167,7 +167,7 @@ const EditProfile = ({ setOnEdit }) => {
             <option value="female">Female</option>
           </select>
         </div>
-        <button className="btn btn-info w-100" type="submit">
+        <button className="btn btn-primary w-100" type="submit">
           Save
         </button>
       </form>
