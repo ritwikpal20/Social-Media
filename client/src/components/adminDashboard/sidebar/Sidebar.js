@@ -17,7 +17,7 @@ const Sidebar = () => {
       {adminMenu === 1 && <Main />}
       {adminMenu === 2 && <AdminManagement />}
       {adminMenu === 3 && <Spam />}
-      {adminMenu === 4 && <UsersManagement />}
+      {/* {adminMenu === 4 && <UsersManagement />} */}
 
       <div className="sidebar_responsive" id="sidebar">
         <div className="sidebar__title">
