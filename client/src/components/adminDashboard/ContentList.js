@@ -23,6 +23,7 @@ const ContentList = ({ content }) => {
               <div className="d-flex flex-column ms-3">
                 <span className="spam_username">{post.user.username}</span>
                 <span className="spam_email">{post.user.email}</span>
+                <span>{post.content}</span>
               </div>
               <span className="spam_time text-muted">
                 ~{moment(post.createdAt).fromNow()}
